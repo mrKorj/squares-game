@@ -11,15 +11,9 @@ export class BoxComponent {
 
   constructor(private dbService: DbService) {}
 
-  color: {}
-
   async changeColor() {
-    this.color = {background: `#${Math.random().toString(16).substr(-6)}`}
-    await this.dbService.updateColor(this.color, this.item.id)
-  }
-
-  ngOnInit(): void {
-    this.color = {background: this.item.background}
+    const color = {background: `#${Math.random().toString(16).substr(-6)}`}
+    await this.dbService.updateColor(color, this.item.id)
   }
 
 }
