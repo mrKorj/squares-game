@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {DbService, IBox} from "../db.service";
 
 @Component({
   selector: 'app-box',
@@ -6,11 +7,19 @@ import {Component} from '@angular/core';
   styleUrls: ['./box.component.css']
 })
 export class BoxComponent {
+  @Input() item: IBox
 
-  color = {background: `#${Math.random().toString(16).substr(-6)}`}
+  constructor(private dbService: DbService) {}
 
-  changeColor() {
+  color: {}
+
+  async changeColor() {
     this.color = {background: `#${Math.random().toString(16).substr(-6)}`}
+    await this.dbService.updateColor(this.color, this.item.id)
+  }
+
+  ngOnInit(): void {
+    this.color = {background: this.item.background}
   }
 
 }
