@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "squares-game-bea4e": {
+      "hosting": {
+        "stage1": [
+          "squares-game-bea4e"
+        ]
+      }
+    }
+  }
+}

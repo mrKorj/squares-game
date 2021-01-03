@@ -117,8 +117,13 @@
               "devServerTarget": "stage1:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "stage1"
 }
